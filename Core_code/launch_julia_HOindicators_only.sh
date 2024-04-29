@@ -9,5 +9,5 @@ input_file=$2
 output_file=$3
 
 ##Launching the code
-time julia -J ${compiled_code} --threads ${nthreads} simplicial_multivariate.jl ${input_file} > ${output_file}
+time julia -J ${compiled_code} --threads ${nthreads} simplicial_multivariate_correct_output.jl ${input_file} > ${output_file}
 
