@@ -18,4 +18,3 @@ do
 done
 
 cd ${current_dir}
-
