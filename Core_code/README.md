@@ -4,13 +4,12 @@
 3. A file .hd5 will contain the information about the homological scaffold (_default is the frequency scaffold_). The format is a dictionary, where the key corresponds to time (N.B. julia starts from 1 rather than from 0), whereas the value encodes the weighted adjacency matrix of the scaffold.
 4. A file .hd5 will contain the information about the list of violating triangles. The format is a dictionary, where the key corresponds to time (N.B. julia starts from 1 rather than from 0), whereas the values are encoded in a the list of size (N choose 3) violating triangles, where zeros correspond to non-violating triangles.
 
-Launching the code with `-h` will show all the different options for launching the code.
+If you use `-h`, it will show all the different options for launching the code.
 
 
+### N.B. The Hypercomplexity and the corresponding contributes are computed considering an in-house conversion of the sliced Wasserstein distance between the persistence diagrams. The results are slightly different (up to some numerical rounding) from the python code in the RHOSTS code for the following reasons:
+- The sliced Wasserstein distance function (default option) is a Julia conversion of the python code https://github.com/scikit-tda/persim/blob/master/persim/sliced_wasserstein.py 
 
-## N.B. The Hypercomplexity and the corresponding contributes are computed considering an in-house conversion of the sliced Wasserstein distance between the persistence diagrams. The results are slightly different from the python code in the RHOSTS code for the following reasons:
-- The sliced Wasserstein distance function (defult option) is a Julia conversion of the python code https://github.com/scikit-tda/persim/blob/master/persim/sliced_wasserstein.py 
-
-- To speed-up the computation, the python code relies on the Sliced Wasserstein distance rather than the proper Wasserstein distance (The sliced Wasserstein is an approximation of the "true" Wasserstain metric). The julia code has the option to rely on the true Wasserstein metric, which is similar in terms of computational time. Use the option `-w` to rely on the true Wasserstein metric.
+- To speed-up the computation, the original python code relied on the Sliced Wasserstein distance rather than the proper Wasserstein distance (The sliced Wasserstein is an approximation of the "true" Wasserstain metric). The julia code has the additional option to rely on the true Wasserstein metric, which in Julia is much faster. Use the option `-w` to rely on the true Wasserstein metric.
 
 - The Wasserstein in python provides the shortest distance with respect to the empty persistence diagram (i.e. diagonal), which for a selected point in the diagram the distance *D* corresponds the segment perpendicular to the diagonal. The implementation in Julia provides instead the hypotenuse of the triangle, i.e. the Julia code provides $\bar{D}= D / \sqrt{2}$.
