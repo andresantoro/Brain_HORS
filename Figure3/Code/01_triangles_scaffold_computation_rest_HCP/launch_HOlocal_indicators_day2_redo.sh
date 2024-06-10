@@ -28,7 +28,7 @@ do
 
 
 	file_input="/home/asantoro/HCP/${subjID}/rfMRI_REST2_RL/Schaefer100/TS_Schaefer100S_gsr_bp_z.mat"
-	file_byte=`wc --bytes ${output_folder}HO_indicators_${subjID}_REST2_RL.txt | cut -d" " -f1`
+	file_byte=`wc --bytes ${output_folder}HO_indicatros_${subjID}_REST2_RL.txt | cut -d" " -f1`
 	if [ ! -f ${output_folder}HO_indicators_${subjID}_REST2_RL.txt ] || [[ ${file_byte} -eq 0 ]]
 	then
 		echo ${subjID} "RL"
