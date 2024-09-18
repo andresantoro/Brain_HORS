@@ -13,4 +13,4 @@ scaffold_flag=1 # Flag 1-> frequency, Flag 2 -> persistence
 
 
 ##Launching the code
-time julia -J ${compiled_code} --threads ${nthreads} simplicial_multivariate_correct_output.jl ${input_file} -s ${output_file_scaffold} -f ${scaffold_flag} -o ${output_file_triangles} > ${output_HOindicators}
+time julia -J ${compiled_code} --threads ${nthreads} simplicial_multivariate.jl ${input_file} -s ${output_file_scaffold} -f ${scaffold_flag} -o ${output_file_triangles} > ${output_HOindicators}
