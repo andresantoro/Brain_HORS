@@ -4,13 +4,6 @@
 import tqdm
 import sys 
 import numpy as np
-sys.path.append('/home/andrea/research/')
-sys.path.append('.')
-from utils_plotting import *
-from utils_brain_analysis import *
-from utils_analyse_HOtimeseries import find_frames_pctl,find_peaks
-from utils_identifiability import *
-from utils_neuromaps_brain import *
 from itertools import combinations
 from scipy.io import loadmat,savemat
 import glob
@@ -19,6 +12,13 @@ import os
 import h5py
 import pickle as pkl
 
+def upper_tri_masking(A):
+    '''Extract the upper triangular
+    values of a matrix'''
+    m = A.shape[0]
+    r = np.arange(m)
+    mask = r[:,None] < r
+    return A[mask]  
 
 def compute_MAD_and_extract_data(X,thresh=90):
     MAD=np.median(np.abs(X-np.median(X,axis=0)),axis=0),
